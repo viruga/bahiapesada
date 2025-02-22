@@ -1,0 +1,102 @@
+/*
+Theme Name: tomametal
+Theme URI: 
+Author: 
+Author URI: 
+Description: 
+Requires at least: 6.6
+Tested up to: 6.6
+Requires PHP: 5.7
+Version: 
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tomametal
+Tags: 
+*/
+:root {
+	--bs-link-color: #FFF600;
+	--bs-link-color-rgb: 255, 246, 0;
+	--bs-link-hover-color: #cdc800;
+    --bs-link-hover-color-rgb: 205, 200, 0;
+    --wp--preset--color--black: #1C1C1C;
+}
+.wp-block-navigation__responsive-dialog {
+    padding: 24px;
+}
+.wp-block-navigation__responsive-container-close {
+    margin: 24px;
+}
+.album-cover img {
+    transition: all 0.2s ease-in-out;
+}
+.gallery {
+    display: flex;
+    gap: 24px;
+}
+.btn-primary {
+	--bs-btn-bg: #FFF600;
+	--bs-btn-border-color: #FFF600;
+	--bs-btn-color: black;
+}
+.btn:hover {
+    color: black;
+    background-color: #cdc800;
+    border-color: #cdc800;
+}
+.table-banda {
+    --bs-table-bg: transparent;
+    --bs-table-color: white;
+    --bs-table-border-color: #666;
+}
+.page-numbers {
+    margin: 0 2px;
+}
+.page-numbers.current {
+    border: 1px solid white;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+a[class="page-numbers"] {
+    background: rgba(var(--bs-link-color-rgb));
+    color: black;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.album-cover:hover img {
+    transform: scale(1.02);
+    filter: brightness(0.85);
+}
+.popover {
+    --bs-popover-bg: var(--wp--preset--color--black);
+    --bs-popover-body-color: white;
+    --bs-popover-border-color: white;
+}
+.track-list {
+    counter-reset: list-item;
+    list-style: none;
+}
+.track-list li {
+    display: flex;
+    align-items: flex-start;
+}
+.track-list li:before {
+    content: counter(list-item) ". ";
+    counter-increment: list-item;
+    margin-left: -28px;
+    width: 28px;
+}
+.modal-content {
+    background-color: var(--bs-gray-800);
+}
+.modal-content .btn-close {
+	filter: invert(1);
+}
+.wp-dark-mode-floating-switch {
+	display: none !important;
+}
+@media screen and (max-width: 768px) {
+	.border-end {
+		border:0 !important;
+	}
+}

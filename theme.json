@@ -1,0 +1,83 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+	"settings": {
+		"appearanceTools": true,
+		"layout": {
+			"contentSize": "620px",
+			"wideSize": "1000px"
+		},
+		"spacing": {
+			"units": [ "%", "px", "em", "rem", "vh", "vw" ]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+					"name": "System Font",
+					"slug": "system-font"
+				}
+			]
+		},
+		"useRootPaddingAwareAlignments": true
+	},
+	"styles": {
+		"spacing": {
+			"padding": {
+				"top": "0",
+				"bottom": "0",
+				"left": "2rem",
+				"right": "2rem"
+			}
+		},
+        "color": {
+            "background": "var(--wp--preset--color--black) !important",
+            "text": "var(--wp--preset--color--white) !important"
+        },
+        "elements": {
+            "link": {
+                "color": {
+                    "text": "var:preset|color|light-green-cyan"
+                }
+            },
+            "caption": {
+                "color": {
+                    "text": "var:preset|color|cyan-bluish-gray"
+                }
+            },
+            "button": {
+                "color": {
+                    "background": "var:preset|color|light-green-cyan",
+                    "text": "var:preset|color|white"
+                }
+            }
+        }
+    },
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header"
+		},
+		{
+			"area": "footer",
+			"name": "footer"
+		}
+	],
+	"customTemplates": [
+		{
+			"name": "taxonomy-pais-brasil",
+			"title": "Taxonomia Brasil",
+			"postTypes": [
+				"bandas",
+				"albuns"
+			]
+		}
+	],
+	"patterns": [
+	    {
+	      "name": "loop-bandas-brasil",
+	      "title": "Loop de Bandas do Brasil",
+	      "description": "Loop de Bandas do Brasil"
+	    }
+	  ],
+	"version": 3
+}
