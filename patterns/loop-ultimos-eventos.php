@@ -24,7 +24,7 @@ $args = array(
     ),
     'orderby' => '_evento_dia', // Ordenar por dia do evento
     'order' => 'ASC',
-    'posts_per_page' => -1 // Ou um número específico para limitar a exibição
+    'posts_per_page' => 8
 );
 
 $query = new WP_Query($args);
