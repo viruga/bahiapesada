@@ -70,7 +70,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 	</div>
 
     <div class="row mt-5">
-		<div class="col-md-9 pe-md-5 me-md-5 border-end">
+		<div class="col-md-9">
 			<?php
 			// Agora vamos buscar e exibir os álbuns que possuem o mesmo nome de artista
 			$args = array(

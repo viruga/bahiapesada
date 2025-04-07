@@ -84,13 +84,12 @@ if ($query->have_posts()) {
 				// Exibir bandas
 				$bandas_ids = get_post_meta(get_the_ID(), '_bandas_relacionadas', true);
 				if (!empty($bandas_ids)) {
-					echo '<p>Com as bandas: ';
+					echo '<br>Com as bandas: ';
 					$links = [];
 					foreach ($bandas_ids as $banda_id) {
 						$links[] = '<a href="' . get_permalink($banda_id) . '">' . get_the_title($banda_id) . '</a>';
 					}
 					echo implode(', ', $links);
-					echo '</p>';
 				}
 				?>
 				</small>
