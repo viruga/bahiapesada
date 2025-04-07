@@ -43,7 +43,7 @@
 		// Cria a query para buscar os álbuns randomizados
 		$args = array(
 			'post_type'      => 'albuns',
-			'posts_per_page' => 4,
+			'posts_per_page' => 6,
 			'meta_key'       => '_spotify_album_release_date', // Define a chave meta para ordenação
 			'orderby'        => 'meta_value',                  // Ordena pelo valor da meta key
 			'order'          => 'DESC',                        // Ordem decrescente para pegar os lançamentos mais recentes
@@ -85,7 +85,7 @@
 	    $album_id = get_post_meta(get_the_ID(), '_spotify_album_id', true);
 	    $link_artist = format_artist_name($artist_name);
 		?>
-			<div class="col-md-3 col-6 mb-3">
+			<div class="col-md-2 col-6 mb-3">
 				<div class="album">
 					<a class="album-cover d-block bg-secondary rounded overflow-hidden" href="<?php echo home_url('/?bandas=') . esc_html($link_artist) . '/#album-id-' . esc_html($album_id); ?>">
 						<?php the_post_thumbnail('medium', array('class' => 'w-100 h-auto')); ?>
