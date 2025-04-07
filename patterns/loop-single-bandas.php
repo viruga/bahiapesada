@@ -171,37 +171,39 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 			}
 			?>
 		</div>
-		<div class="col-md-2">
-			<?php
-			$banda_id = get_the_ID();
-
-			$eventos = new WP_Query([
-				'post_type' => 'eventos',
-				'posts_per_page' => -1,
-				'meta_query' => [
-					[
-						'key'     => '_bandas_relacionadas',
-						'value'   => '"' . $banda_id . '"', // precisa das aspas
-						'compare' => 'LIKE'
-					]
+		
+		<?php
+		$banda_id = get_the_ID();
+		$eventos = new WP_Query([
+			'post_type' => 'eventos',
+			'posts_per_page' => -1,
+			'meta_query' => [
+				[
+					'key'     => '_bandas_relacionadas',
+					'value'   => '"' . $banda_id . '"',
+					'compare' => 'LIKE'
 				]
-			]);
+			]
+		]);
 
-			if ($eventos->have_posts()) {
-				echo '<h4>Eventos desta banda:</h4>';
-				echo '<ul class="mb-3">';
-				while ($eventos->have_posts()) {
-					$eventos->the_post();
-					echo '<a href="' . get_permalink() . '" class="evento-thumb">';
-					the_post_thumbnail('thumbnail', ['class' => 'w-100']);
-					echo '</a>';
-					echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-				}
-				echo '</ul>';
-				wp_reset_postdata();
+		if ($eventos->have_posts()) {
+			echo '<div class="col-md-2 border-start ps-md-5 ms-md-5">';
+			echo '<h4>Eventos desta banda:</h4>';
+			echo '<ul>';
+			while ($eventos->have_posts()) {
+				$eventos->the_post();
+				echo '<li class="mb-3">';
+				echo '<a href="' . get_permalink() . '" class="evento-thumb">';
+				the_post_thumbnail('thumbnail', ['class' => 'w-100']);
+				echo '</a>';
+				echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
 			}
-			?>
-		</div>
+			echo '</ul>';
+			echo '</div>';
+			wp_reset_postdata();
+		}
+		?>
+
     </div>
 
  </div>
