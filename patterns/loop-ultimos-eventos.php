@@ -92,9 +92,9 @@ if ($query->have_posts()) {
 					}
 					echo implode(', ', $links);
 				}
-				
+
 				if (!empty($ingresso)) {
-					echo '<br><a href="' . esc_html($ingresso) . '" target="blank">Comprar ingresso</a>';
+					echo '<br><a href="' . esc_html($ingresso) . '" target="blank" class="wp-element-button py-1 mt-2 rounded d-inline-block has-background has-black-color has-vivid-green-cyan-background-color">Comprar ingresso</a>';
 				}
 				?>
 				</small>
