@@ -90,6 +90,12 @@ a[class="page-numbers"] {
 .wp-dark-mode-floating-switch {
 	display: none !important;
 }
+.evento-antigo {
+    opacity: 0.5;
+}
+.evento-antigo:hover {
+    opacity: 1;
+}
 @media screen and (max-width: 768px) {
 	.border-end {
 		border:0 !important;
