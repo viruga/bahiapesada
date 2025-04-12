@@ -25,11 +25,11 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 <div class="container">
 	<div class="row my-md-5">
 		<div class="col">
-			<h1><?php the_title(); ?></h1>
+			<h1 class="mb-4"><?php the_title(); ?></h1>
 
 			<?php 
 			if( '' !== get_post()->post_content ) {
-				echo '<div class="pe-md-5 me-md-5 border-end">';
+				echo '<div class="content">';
 				the_content();
 				echo '</div>';
 			}
@@ -192,7 +192,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 		if ($eventos->have_posts()) {
 			echo '<div class="col-md-2 offset-1 ps-4 border-secondary border-start">';
 				echo '<div class="sidebar">';
-				echo '<h4>Eventos da banda:</h4>';
+				echo '<h4>Eventos na Bahia:</h4>';
 				while ($eventos->have_posts()) {
 					$eventos->the_post();
 					echo '<div class="mb-3">';
