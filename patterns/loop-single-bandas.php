@@ -205,7 +205,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 					the_post_thumbnail('thumbnail', ['class' => 'w-100 h-auto']);
 					echo '</a>';
 					echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-					echo '<strong>' . $data_formatada . '</strong>: ';
+					echo '<br><strong>' . $data_formatada . '</strong>: ';
 					echo '</div>';
 				}
 				echo '</div>';
