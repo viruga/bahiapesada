@@ -185,7 +185,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 				[
 					'key'     => '_bandas_relacionadas',
 					'value' => '"' . $banda_id . '"',
-					'compare' => 'IN'
+					'compare' => 'LIKE'
 				]
 			]
 		]);
