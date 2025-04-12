@@ -177,6 +177,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 		$eventos = new WP_Query([
 			'post_type' => 'eventos',
 			'posts_per_page' => -1,
+			'post_status' => 'any',
 			'meta_query' => [
 				[
 					'key'     => '_bandas_relacionadas',
