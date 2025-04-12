@@ -200,12 +200,13 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 					$data_evento = get_post_meta(get_the_ID(), '_evento_dia', true);
 					$classe_antigo = ($data_evento < $hoje) ? 'evento-antigo' : '';
 					$data_formatada = date('d/m/Y', strtotime($data_evento));
+					// Apresenta
 					echo '<div class="mb-3 ' . esc_attr($classe_antigo) . '">';
 					echo '<a href="' . get_permalink() . '" class="evento-thumb">';
 					the_post_thumbnail('thumbnail', ['class' => 'w-100 h-auto']);
 					echo '</a>';
 					echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-					echo '<br><strong>' . $data_formatada . '</strong>: ';
+					echo '<br><span>' . $data_formatada . '</span>: ';
 					echo '</div>';
 				}
 				echo '</div>';
