@@ -183,7 +183,10 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 					'value'   => $banda_id,
 					'compare' => 'LIKE'
 				]
-			]
+			],
+			'meta_key' => '_evento_dia',          // Campo que contém a data
+			'orderby'  => 'meta_value',           // Ordenar pelo valor do meta_key
+			'order'    => 'ASC'                   // ASC = do mais antigo pro mais recente
 		]);
 
 		if ($eventos->have_posts()) {
