@@ -30,7 +30,7 @@ $args = array(
 $query = new WP_Query($args);
 echo '<div class="container my-5">';
 if ($query->have_posts()) {
-    echo '<h2 class="mb-4">Próximos eventos</h2>';
+    echo '<h2 class="mb-4">Próximos eventos na Bahia</h2>';
     echo '<div class="row gx-md-4 gx-3">';
     while ($query->have_posts()) {
         $query->the_post();
@@ -40,6 +40,7 @@ if ($query->have_posts()) {
 		$data_evento = strtotime(get_post_meta(get_the_ID(), '_evento_dia', true));
 		$data_formatada = strftime('%d de %b', $data_evento);
 		$local = get_post_meta(get_the_ID(), '_evento_local', true);
+		$ingresso = get_post_meta(get_the_ID(), '_evento_ingresso', true);
 		
         // Exibir thumbnail, título, metadados e termos das taxonomias
         ?>
@@ -90,6 +91,10 @@ if ($query->have_posts()) {
 						$links[] = '<a class="d-inline-block" href="' . get_permalink($banda_id) . '">' . get_the_title($banda_id) . '</a>';
 					}
 					echo implode(', ', $links);
+				}
+				
+				if (!empty($ingresso)) {
+					echo '<br><a href="' . esc_html($ingresso) . '" target="blank">Comprar ingresso</a>';
 				}
 				?>
 				</small>

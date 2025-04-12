@@ -18,6 +18,7 @@ function eventos_meta_box_callback($post) {
     $hora = get_post_meta($post->ID, '_evento_hora', true);
     $valor = get_post_meta($post->ID, '_evento_valor', true);
     $local = get_post_meta($post->ID, '_evento_local', true);
+    $ingresso = get_post_meta($post->ID, '_evento_ingresso', true);
     
     // HTML para os campos da metabox
     ?>
@@ -29,6 +30,9 @@ function eventos_meta_box_callback($post) {
 
     <label for="evento_valor">Valor do Ingresso (R$):</label>
     <input type="number" name="evento_valor" id="evento_valor" value="<?php echo esc_attr($valor); ?>" placeholder="Ex: 50.00" style="width: 100%;" min="0" step="0.01"><br><br>
+
+    <label for="evento_ingresso">Link do Ingresso:</label>
+    <input type="url" name="evento_ingresso" id="evento_ingresso" value="<?php echo esc_attr($ingresso); ?>" placeholder="" style="width: 100%;"><br><br>
 
     <label for="evento_local">Local do Evento:</label>
     <input type="text" name="evento_local" id="evento_local" value="<?php echo esc_attr($local); ?>" placeholder="Ex: Rua das Flores, 123" style="width: 100%;">
@@ -49,6 +53,10 @@ function save_eventos_meta_box_data($post_id) {
     
     if (isset($_POST['evento_valor'])) {
         update_post_meta($post_id, '_evento_valor', sanitize_text_field($_POST['evento_valor']));
+    }
+
+    if (isset($_POST['evento_ingresso'])) {
+        update_post_meta($post_id, '_evento_ingresso', sanitize_text_field($_POST['evento_ingresso']));
     }
 
     if (isset($_POST['evento_local'])) {
