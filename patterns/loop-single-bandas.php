@@ -189,31 +189,41 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 			]
 		]);
 
-		if ($eventos->have_posts()) {
-			echo '<div class="col-md-2 offset-1 ps-4 border-secondary border-start">';
-				echo '<div class="sidebar">';
-				echo '<h4>Eventos na Bahia:</h4>';
-				while ($eventos->have_posts()) {
-					$eventos->the_post();
-					$bandas = get_post_meta(get_the_ID(), '_bandas_relacionadas', true);
+		$eventos_validos = [];
 
-					if (is_array($bandas) && in_array($banda_id, $bandas)) {
-						$data_evento = get_post_meta(get_the_ID(), '_evento_dia', true);
-						$classe_antigo = ($data_evento < $hoje) ? 'evento-antigo' : '';
-						$data_formatada = date('d/m/Y', strtotime($data_evento));
-						// Apresenta
-						echo '<div class="mb-3 ' . esc_attr($classe_antigo) . '">';
-						echo '<a href="' . get_permalink() . '" class="evento-thumb">';
-						the_post_thumbnail('thumbnail', ['class' => 'w-100 h-auto']);
-						echo '</a>';
-						echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-						echo '<br><span>' . $data_formatada . '</span>: ';
-						echo '</div>';
-					}
+		if ($eventos->have_posts()) {
+			while ($eventos->have_posts()) {
+				$eventos->the_post();
+				$bandas = get_post_meta(get_the_ID(), '_bandas_relacionadas', true);
+
+				if (is_array($bandas) && in_array($banda_id, $bandas)) {
+					$eventos_validos[] = get_the_ID();
 				}
-				echo '</div>';
-			echo '</div>';
+			}
 			wp_reset_postdata();
+		}
+
+		if (!empty($eventos_validos)) {
+			echo '<div class="col-md-2 offset-1 ps-4 border-secondary border-start">';
+			echo '<div class="sidebar">';
+			echo '<h4>Eventos na Bahia:</h4>';
+
+			foreach ($eventos_validos as $evento_id) {
+				$data_evento = get_post_meta($evento_id, '_evento_dia', true);
+				$classe_antigo = ($data_evento < $hoje) ? 'evento-antigo' : '';
+				$data_formatada = date('d/m/Y', strtotime($data_evento));
+
+				echo '<div class="mb-3 ' . esc_attr($classe_antigo) . '">';
+				echo '<a href="' . get_permalink($evento_id) . '" class="evento-thumb">';
+				echo get_the_post_thumbnail($evento_id, 'thumbnail', ['class' => 'w-100 h-auto']);
+				echo '</a>';
+				echo '<a href="' . get_permalink($evento_id) . '">' . get_the_title($evento_id) . '</a>';
+				echo '<br><span>' . $data_formatada . '</span>';
+				echo '</div>';
+			}
+
+			echo '</div>';
+			echo '</div>';
 		}
 
 		if (!empty($dia)) {
