@@ -173,21 +173,13 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 
 		<?php
 		$banda_id = get_the_ID();
+		
 		$hoje = date('Y-m-d');
+
 		$eventos = new WP_Query([
 			'post_type' => 'eventos',
 			'posts_per_page' => -1,
-			'post_status' => 'any',
-			'meta_key' => '_evento_dia',
-			'orderby'  => 'meta_value',
-			'order'    => 'DESC',
-			'meta_query' => [
-				[
-					'key'     => '_bandas_relacionadas',
-					'value'   => $banda_id,
-					'compare' => 'LIKE'
-				]
-			]
+			'post_status' => 'any'
 		]);
 
 		if ($eventos->have_posts()) {
@@ -196,18 +188,21 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 				echo '<h4>Eventos na Bahia:</h4>';
 				while ($eventos->have_posts()) {
 					$eventos->the_post();
-					// Pega a data do evento
-					$data_evento = get_post_meta(get_the_ID(), '_evento_dia', true);
-					$classe_antigo = ($data_evento < $hoje) ? 'evento-antigo' : '';
-					$data_formatada = date('d/m/Y', strtotime($data_evento));
-					// Apresenta
-					echo '<div class="mb-3 ' . esc_attr($classe_antigo) . '">';
-					echo '<a href="' . get_permalink() . '" class="evento-thumb">';
-					the_post_thumbnail('thumbnail', ['class' => 'w-100 h-auto']);
-					echo '</a>';
-					echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-					echo '<br><span>' . $data_formatada . '</span>: ';
-					echo '</div>';
+					$bandas = get_post_meta(get_the_ID(), '_bandas_relacionadas', true);
+
+					if (is_array($bandas) && in_array($banda_id, $bandas)) {
+						$data_evento = get_post_meta(get_the_ID(), '_evento_dia', true);
+						$classe_antigo = ($data_evento < $hoje) ? 'evento-antigo' : '';
+						$data_formatada = date('d/m/Y', strtotime($data_evento));
+						// Apresenta
+						echo '<div class="mb-3 ' . esc_attr($classe_antigo) . '">';
+						echo '<a href="' . get_permalink() . '" class="evento-thumb">';
+						the_post_thumbnail('thumbnail', ['class' => 'w-100 h-auto']);
+						echo '</a>';
+						echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+						echo '<br><span>' . $data_formatada . '</span>: ';
+						echo '</div>';
+					}
 				}
 				echo '</div>';
 			echo '</div>';
