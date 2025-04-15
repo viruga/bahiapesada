@@ -32,9 +32,11 @@ function render_banda_metabox($post) {
     echo '</select>';
 }
 
-add_action('save_post_eventos', 'save_bandas_relacionadas');
+add_action('save_post', 'save_bandas_relacionadas');
 function save_bandas_relacionadas($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    if (get_post_type($post_id) !== 'eventos') return;
 
     if (isset($_POST['bandas_relacionadas'])) {
         $bandas = array_map('intval', $_POST['bandas_relacionadas']);

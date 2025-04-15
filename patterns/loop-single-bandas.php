@@ -70,7 +70,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 
 			<div class="albums mt-4">
 				<?php
-				// Agora vamos buscar e exibir os álbuns que possuem o mesmo nome de artista
+				// Buscar álbuns com o mesmo nome de artista
 				$args = array(
 					'post_type' => 'albuns', 
 					'meta_query' => array(
@@ -185,7 +185,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 				[
 					'key'     => '_bandas_relacionadas',
 					'value'   => $banda_id,
-					'compare' => 'IN'
+					'compare' => 'LIKE'
 				]
 			]
 		]);
