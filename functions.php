@@ -46,7 +46,8 @@ get_template_part('inc/metabox/meta-eventos');
 get_template_part('inc/metabox/meta-relation-eventos-banda');
 
 // Funcionalidades
-get_template_part('inc/func/func-token-spotify');
 get_template_part('inc/func/func-admin-column-albuns');
+get_template_part('inc/func/func-admin-column-evento-dia');
+get_template_part('inc/func/func-token-spotify');
 get_template_part('inc/func/func-api-youtube');
 get_template_part('inc/func/func-utilidades');
