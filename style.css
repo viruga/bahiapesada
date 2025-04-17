@@ -97,6 +97,9 @@ a[class="page-numbers"] {
 .evento-antigo:hover {
     opacity: 1;
 }
+.evento-cover {
+    aspect-ratio: 1;
+}
 @media screen and (max-width: 768px) {
 	.border-end {
 		border:0 !important;
