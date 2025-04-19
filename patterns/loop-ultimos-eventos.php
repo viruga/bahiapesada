@@ -127,5 +127,6 @@ if ($query->have_posts()) {
 echo '</div>';
 wp_reset_postdata();
 ?>
-
-
+<div class="text-center">
+<a href="https://bahiapesada.com.br/?post_type=eventos">Ver todos os eventos</a>
+</div>
