@@ -101,7 +101,19 @@ a[class="page-numbers"] {
     aspect-ratio: 1;
 }
 @media screen and (max-width: 768px) {
-	.border-end {
+	header .wp-block-navigation {
+        order: 1;
+    }
+    .border-end {
 		border:0 !important;
 	}
+    .custom-logo {
+        width: 80px;
+        height: 70px !important;
+        object-fit: none;
+        object-position: left;
+    }
+    .wp-block-search__button {
+        display: none;
+    }
 }

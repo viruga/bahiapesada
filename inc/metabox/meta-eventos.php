@@ -22,19 +22,19 @@ function eventos_meta_box_callback($post) {
     
     // HTML para os campos da metabox
     ?>
-    <label for="evento_dia">Dia do Evento:</label><br>
-    <input type="date" name="evento_dia" id="evento_dia" value="<?php echo esc_attr($dia); ?>" style="width: 100%;"><br><br>
+    <label for="evento_dia">Dia do Evento *</label><br>
+    <input type="date" name="evento_dia" id="evento_dia" value="<?php echo esc_attr($dia); ?>" style="width: 100%;" required><br><br>
 
-    <label for="evento_hora">Hora do Evento:</label>
+    <label for="evento_hora">Hora do Evento</label>
     <input type="time" name="evento_hora" id="evento_hora" value="<?php echo esc_attr($hora); ?>" style="width: 100%;"><br><br>
 
-    <label for="evento_valor">Valor do Ingresso (R$):</label>
+    <label for="evento_valor">Valor do Ingresso (R$)</label>
     <input type="number" name="evento_valor" id="evento_valor" value="<?php echo esc_attr($valor); ?>" placeholder="Ex: 50.00" style="width: 100%;" min="0" step="0.01"><br><br>
 
-    <label for="evento_ingresso">Link do Ingresso:</label>
-    <input type="url" name="evento_ingresso" id="evento_ingresso" value="<?php echo esc_attr($ingresso); ?>" placeholder="" style="width: 100%;"><br><br>
+    <label for="evento_ingresso">Link do Ingresso</label>
+    <input type="url" name="evento_ingresso" id="evento_ingresso" value="<?php echo esc_attr($ingresso); ?>" placeholder="https://sympla.com.br..." style="width: 100%;"><br><br>
 
-    <label for="evento_local">Local do Evento:</label>
+    <label for="evento_local">Local do Evento</label>
     <input type="text" name="evento_local" id="evento_local" value="<?php echo esc_attr($local); ?>" placeholder="Ex: Rua das Flores, 123" style="width: 100%;">
     <?php
 }
