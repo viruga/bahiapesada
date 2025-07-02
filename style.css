@@ -104,14 +104,22 @@ a[class="page-numbers"] {
 	header .wp-block-navigation {
         order: 1;
     }
+    header .wp-block-search__input {
+        padding: 8px;
+    }
+    header > div > div {
+        padding: 16px 8px !important;
+    }
     .border-end {
 		border:0 !important;
 	}
     .custom-logo {
-        width: 80px;
+        max-width: 75px !important;
         height: 70px !important;
         object-fit: none;
         object-position: left;
+        transform-origin: left;
+        transform: scale(0.7);
     }
     .wp-block-search__button {
         display: none;
