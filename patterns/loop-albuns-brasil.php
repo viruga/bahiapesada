@@ -8,7 +8,7 @@
  */
 ?>
 
-<div class="container my-5">
+<div class="container my-5 lancamentos-br-home">
 	<h2 class="mb-4 d-flex justify-content-between align-items-end">Últimos lançamentos no Brasil 
 		<small class="fs-6 fw-normal d-inline-block w-50 text-end"><a href="<?php echo site_url(); ?>/?post_type=albuns&pais=brasil&ordenacao=lancamentos&destaque=todos&tipo_album=todos">Todos os álbuns</a></small>
 	</h2>
@@ -84,7 +84,7 @@
 	    $album_id = get_post_meta(get_the_ID(), '_spotify_album_id', true);
 	    $link_artist = format_artist_name($artist_name);
 		?>
-			<div class="col-md-3 col-6 mb-3">
+			<div class="lancamento-br-home col-md-3 col-6 mb-3">
 				<div class="album">
 					<a class="album-cover d-block bg-secondary rounded overflow-hidden" href="<?php echo home_url('/?bandas=') . esc_html($link_artist) . '/#album-id-' . esc_html($album_id); ?>">
 						<?php the_post_thumbnail('medium', array('class' => 'w-100 h-auto')); ?>

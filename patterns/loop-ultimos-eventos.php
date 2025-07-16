@@ -28,7 +28,7 @@ $args = array(
 );
 
 $query = new WP_Query($args);
-echo '<div class="container my-5">';
+echo '<div class="container my-5 eventos-home">';
 if ($query->have_posts()) {
     echo '<h2 class="mb-4">Próximos eventos na Bahia</h2>';
     echo '<div class="row gx-md-4 gx-3">';
@@ -44,7 +44,7 @@ if ($query->have_posts()) {
 		
         // Exibir thumbnail, título, metadados e termos das taxonomias
         ?>
-        <div class="col-md-3 col-6">
+        <div class="evento-home col-md-3 col-6">
 			<a href="#evento-<?php the_ID(); ?>" data-bs-toggle="modal">
 			<?php 
 			if (has_post_thumbnail()) {
@@ -102,15 +102,15 @@ if ($query->have_posts()) {
         </div>
 
 		<div class="modal fade" id="evento-<?php the_ID(); ?>" tabindex="-1" aria-labelledby="evento-<?php the_ID(); ?>Label" aria-hidden="true">
-		  <div class="modal-dialog modal-xl">
+		  <div class="modal-dialog modal-xl" style="max-width: fit-content;">
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			  </div>
-			  <div class="modal-body">
+			  <div class="modal-body text-center">
 				<?php 
 				if (has_post_thumbnail()) {
-					the_post_thumbnail('full', array('class' => 'w-100 h-auto')); 
+					the_post_thumbnail('full', array('class' => 'mw-100 h-auto')); 
 				}
 				?>
 			  </div>
