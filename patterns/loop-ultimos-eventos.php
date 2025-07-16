@@ -45,7 +45,7 @@ if ($query->have_posts()) {
         // Exibir thumbnail, título, metadados e termos das taxonomias
         ?>
         <div class="evento-home col-md-3 col-6">
-			<a href="#evento-<?php the_ID(); ?>" data-bs-toggle="modal">
+			<a href="<?php the_permalink(); ?>">
 			<?php 
 			if (has_post_thumbnail()) {
 				the_post_thumbnail('medium', array('class' => 'w-100 h-auto rounded mb-3')); 
@@ -100,23 +100,6 @@ if ($query->have_posts()) {
 				</small>
 			</p>
         </div>
-
-		<div class="modal fade" id="evento-<?php the_ID(); ?>" tabindex="-1" aria-labelledby="evento-<?php the_ID(); ?>Label" aria-hidden="true">
-		  <div class="modal-dialog modal-xl" style="max-width: fit-content;">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			  </div>
-			  <div class="modal-body text-center">
-				<?php 
-				if (has_post_thumbnail()) {
-					the_post_thumbnail('full', array('class' => 'mw-100 h-auto')); 
-				}
-				?>
-			  </div>
-			</div>
-		  </div>
-		</div>
 
         <?php
     }
