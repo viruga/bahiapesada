@@ -44,11 +44,11 @@ if ($query->have_posts()) {
 		
         // Exibir thumbnail, título, metadados e termos das taxonomias
         ?>
-        <div class="evento-home col-md-3 col-6">
-			<a href="<?php the_permalink(); ?>">
+        <div class="evento-home mb-3 col-md-3 col-6">
+			<a class="rounded" href="<?php the_permalink(); ?>">
 			<?php 
 			if (has_post_thumbnail()) {
-				the_post_thumbnail('medium', array('class' => 'w-100 h-auto rounded mb-3')); 
+				the_post_thumbnail('medium', array('class' => 'w-100 h-auto')); 
 			}
 			?>
 			</a>
