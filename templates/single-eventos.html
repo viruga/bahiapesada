@@ -1,38 +1,57 @@
 <!-- wp:template-part {"slug":"header","theme":"bahiapesada","tagName":"header"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"1320px"}} -->
-<div class="wp-block-group"><!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"format":[]}} -->
-    <div class="wp-block-query"><!-- wp:post-template -->
-    <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"top"}} -->
-    <div class="wp-block-group"><!-- wp:group {"layout":{"type":"constrained"}} -->
-    <div class="wp-block-group">
-    <!-- wp:heading {"level":1} -->
-    <h1 class="wp-block-heading">Evento:</h1>
-    <!-- /wp:heading -->
-    
-    <!-- wp:post-title {"level":2} /-->
-    
-    <!-- wp:pattern {"slug":"loop-single-evento"} /--></div>
-    <!-- /wp:group -->
-    
-    <!-- wp:post-featured-image {"align":"left","style":{"layout":{"selfStretch":"fixed","flexSize":"50%"}}} /--></div>
-    <!-- /wp:group -->
-    <!-- /wp:post-template -->
-    
-    <!-- wp:query-pagination -->
-    <!-- wp:query-pagination-previous /-->
-    
-    <!-- wp:query-pagination-numbers /-->
-    
-    <!-- wp:query-pagination-next /-->
-    <!-- /wp:query-pagination -->
-    
-    <!-- wp:query-no-results -->
-    <!-- wp:paragraph {"placeholder":"Adicione texto ou blocos que serão exibidos quando uma consulta não retornar resultados."} -->
-    <p></p>
-    <!-- /wp:paragraph -->
-    <!-- /wp:query-no-results --></div>
-    <!-- /wp:query --></div>
-    <!-- /wp:group -->
-    
-    <!-- wp:template-part {"slug":"footer","theme":"bahiapesada","tagName":"footer"} /-->
+<div class="wp-block-group">
+    <!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[],"format":[]}} -->
+    <div class="wp-block-query">
+        <!-- wp:post-template -->
+            <!-- wp:columns -->
+            <div class="wp-block-columns">
+                <!-- wp:column {"width":"50%","className":"order-1 order-md-0"} -->
+                <div class="wp-block-column order-1 order-md-0" style="flex-basis:50%">
+                    <!-- wp:group {"layout":{"type":"constrained"}} -->
+                    <div class="wp-block-group">
+                        <!-- wp:heading {"level":1} -->
+                        <h1 class="wp-block-heading">Evento:</h1>
+                        <!-- /wp:heading -->
+
+                        <!-- wp:post-title {"level":2} /-->
+
+                        <!-- wp:pattern {"slug":"loop-single-evento"} /-->
+
+                        <!-- wp:separator {"backgroundColor":"cyan-bluish-gray"} -->
+                        <hr class="wp-block-separator has-text-color has-cyan-bluish-gray-color has-alpha-channel-opacity has-cyan-bluish-gray-background-color has-background"/>
+                        <!-- /wp:separator -->
+
+                        <!-- wp:post-content /-->
+                    </div>
+                    <!-- /wp:group -->
+                </div>
+                <!-- /wp:column -->
+
+                <!-- wp:column {"width":"50%"} -->
+                <div class="wp-block-column" style="flex-basis:50%">
+                    <!-- wp:post-featured-image {"align":"left","style":{"layout":{"selfStretch":"fill","flexSize":null}}} /-->
+                </div>
+                <!-- /wp:column -->
+            </div>
+            <!-- /wp:columns -->
+        <!-- /wp:post-template -->
+
+        <!-- wp:query-pagination -->
+            <!-- wp:query-pagination-previous /-->
+            <!-- wp:query-pagination-numbers /-->
+            <!-- wp:query-pagination-next /-->
+        <!-- /wp:query-pagination -->
+
+        <!-- wp:query-no-results -->
+            <!-- wp:paragraph {"placeholder":"Adicione texto ou blocos que serão exibidos quando uma consulta não retornar resultados."} -->
+            <p></p>
+            <!-- /wp:paragraph -->
+        <!-- /wp:query-no-results -->
+    </div>
+    <!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"bahiapesada","tagName":"footer"} /-->
