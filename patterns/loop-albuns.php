@@ -23,7 +23,7 @@
 		$args = array(
 			'post_type' => 'albuns',
 			'paged' => $paged,
-			'posts_per_page' => 66,
+			'posts_per_page' => 132,
 			'meta_query' => array(
 				array(
 					'key' => '_is_highlighted',
