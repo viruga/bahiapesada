@@ -23,8 +23,8 @@ function remove_acentos_busca($search, $query) {
 
     // Altera a cláusula de busca no SQL
     $search = " AND (";
-    $search .= $wpdb->prepare("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER($wpdb->posts.post_title),
-    'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u'),'â','a'),'ê','e'),'ô','o'),'ã','a'),'ç','c') LIKE %s", '%' . $wpdb->esc_like($termo_sem_acentos) . '%');
+    $search .= $wpdb->prepare("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER($wpdb->posts.post_title),
+    'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u'),'â','a'),'ê','e'),'ô','o'),'ö','o'),'ã','a'),'ç','c') LIKE %s", '%' . $wpdb->esc_like($termo_sem_acentos) . '%');
     $search .= ")";
 
     return $search;
