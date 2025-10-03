@@ -51,4 +51,4 @@ get_template_part('inc/func/func-admin-column-evento-dia');
 get_template_part('inc/func/func-token-spotify');
 get_template_part('inc/func/func-api-youtube');
 get_template_part('inc/func/func-utilidades');
-get_template_part('inc/func/func-search');
+//get_template_part('inc/func/func-search');
