@@ -66,7 +66,7 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 				echo '<div><strong>Views:</strong> ' . esc_html(format_followers_count($youtube_views)) . '</div>';
 				echo '<div>';
 				if ( $spotify_url ) {
-					echo '<a target="blank" href="' . $spotify_url . '"><span class="icon-icon-spotify"></span> Spotify</a>';
+					echo '<a class="me-2" target="blank" href="' . $spotify_url . '"><span class="icon-icon-spotify"></span> Spotify</a>';
 				}
 				if ( $youtube_channel_id ) {
 					echo '<a target="blank" href="https://www.youtube.com/channel/' . $youtube_channel_id . '"><span class="icon-icon-youtube"></span> Youtube</a>';
