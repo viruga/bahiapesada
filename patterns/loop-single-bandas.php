@@ -49,6 +49,18 @@ $current_artist_name = get_post_meta(get_the_ID(), '_spotify_artist_name', true)
 					echo implode(', ', $country_names);
 					echo '</div>';
 				}
+				// Exibir categorias da taxonomia 'cidade'
+				$cities = get_the_terms(get_the_ID(), 'cidades');
+				if ($cities && !is_wp_error($cities)) {
+					echo '<div class="band-cities">';
+					echo '<strong>Cidade:</strong> ';
+					$city_names = [];
+					foreach ($cities as $city) {
+						$city_names[] = esc_html($city->name);
+					}
+					echo implode(', ', $city_names);
+					echo '</div>';
+				}
 				// Exibir categorias da taxonomia 'genero'
 				$genres = get_the_terms(get_the_ID(), 'genero');
 				if ($genres && !is_wp_error($genres)) {
