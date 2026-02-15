@@ -69,7 +69,7 @@ if ($query->have_posts()) {
 					}
 				}
 		
-				echo get_the_content() . ' ';
+				//echo get_the_content() . ' ';
 		
 				echo esc_html($local) . ' ';
 
