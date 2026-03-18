@@ -30,7 +30,7 @@ $args = array(
 $query = new WP_Query($args);
 echo '<div id="eventos" class="mt-5 py-5 eventos-home" style="background: #232323;"><div class="container">';
 if ($query->have_posts()) {
-    echo '<h2 class="mb-4 d-flex justify-content-between align-items-end">Próximos eventos na Bahia <small><a href="https://bahiapesada.com.br/?post_type=eventos">Todos os eventos</a></small></h2>';
+    echo '<h2 class="mb-4 d-flex justify-content-between align-items-end">Próximos eventos na Bahia <small class="fs-6 fw-normal d-inline-block w-50 text-end"><a href="https://bahiapesada.com.br/?post_type=eventos">Todos os eventos</a></small></h2>';
     echo '<div class="row gx-md-4 gx-3">';
     while ($query->have_posts()) {
         $query->the_post();
