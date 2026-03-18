@@ -28,7 +28,7 @@ $args = array(
 );
 
 $query = new WP_Query($args);
-echo '<div class="container my-5 eventos-home">';
+echo '<div id="eventos" class="mt-5 py-5 eventos-home" style="background: #232323;"><div class="container">';
 if ($query->have_posts()) {
     echo '<h2 class="mb-4">Próximos eventos na Bahia</h2>';
     echo '<div class="row gx-md-4 gx-3">';
@@ -44,7 +44,7 @@ if ($query->have_posts()) {
 		
         // Exibir thumbnail, título, metadados e termos das taxonomias
         ?>
-        <div class="evento-home col-md-3 col-6">
+        <div id="eventos" class="evento-home col-md-3 col-6">
 			<a class="rounded mb-3" href="<?php the_permalink(); ?>">
 			<?php 
 			if (has_post_thumbnail()) {
@@ -107,7 +107,7 @@ if ($query->have_posts()) {
 } else {
     echo '';
 }
-echo '</div>';
+echo '</div></div>';
 wp_reset_postdata();
 ?>
 <div class="text-center">
