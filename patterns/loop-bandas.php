@@ -48,7 +48,14 @@
 					    $child_terms = get_term_children($brasil_term->term_id, 'pais');
 
 					    // Verifica se estamos na taxonomia "pais" e se o termo atual é "brasil" ou uma de suas categorias filhas
-					    if (is_tax('pais', 'brasil') || in_array(get_queried_object_id(), $child_terms)) {
+					    $brasil_selecionado =
+							(isset($_GET['pais']) && $_GET['pais'] === 'brasil');
+
+						if (
+							is_tax('pais', 'brasil') ||
+							in_array(get_queried_object_id(), $child_terms) ||
+							$brasil_selecionado
+						) {
 					        echo 'Estado'; // Mostra "Estado" se o termo for "brasil" ou uma categoria filha
 					    } else {
 					        echo 'País';   // Caso contrário, mostra "País"
@@ -103,26 +110,39 @@
 			}
 
 			// Definindo o valor padrão de ordenação
-			$orderby = '_banda_formation_year'; // Por padrão, ordena por ano de formação
-			$order = 'DESC'; // Ordem decrescente por padrão
+			$orderby  = 'meta_value_num';
+			$meta_key = '_banda_formation_year';
+			$order    = 'DESC';
 
 			// Verifica se o usuário selecionou uma opção de ordenação
 			if (isset($_GET['ordenar'])) {
-			    if ($_GET['ordenar'] === 'formation_year_asc') {
-			        $orderby = '_banda_formation_year';
-			        $order = 'ASC'; // Ordem crescente
-			    } elseif ($_GET['ordenar'] === 'formation_year_desc') {
-			        $orderby = '_banda_formation_year';
-			        $order = 'DESC'; // Ordem decrescente
-			    } elseif ($_GET['ordenar'] === 'youtube_views') {
-			        $orderby = 'youtube_views';
-			        $meta_query[] = array(
-			            'key'     => 'youtube_views',
-			            'compare' => 'EXISTS',  // Garante que só serão considerados posts com esse campo
-			            'type'    => 'NUMERIC',
-			        );
-			        $order = 'DESC'; // Ordem decrescente para relevância
-			    }
+
+				if ($_GET['ordenar'] === 'formation_year_asc') {
+					$orderby  = 'meta_value_num';
+					$meta_key = '_banda_formation_year';
+					$order    = 'ASC';
+
+				} elseif ($_GET['ordenar'] === 'formation_year_desc') {
+					$orderby  = 'meta_value_num';
+					$meta_key = '_banda_formation_year';
+					$order    = 'DESC';
+
+				} elseif ($_GET['ordenar'] === 'youtube_views') {
+					$orderby  = 'meta_value_num';
+					$meta_key = 'youtube_views';
+					$meta_query[] = array(
+						'key'     => 'youtube_views',
+						'compare' => 'EXISTS',
+						'type'    => 'NUMERIC',
+					);
+					$order = 'DESC';
+
+				} elseif ($_GET['ordenar'] === 'title_asc') {
+					// ORDEM ALFABÉTICA
+					$orderby  = 'title';
+					$meta_key = '';
+					$order    = 'ASC';
+				}
 			}
 
 			$args = array(
@@ -130,10 +150,13 @@
 				'paged' => $paged,
 				'tax_query' => $tax_query,
 				'meta_query' => $meta_query,
-				'meta_key'    => $orderby, 
-			    'orderby'     => 'meta_value_num', 
-			    'order'       => $order, 
+				'orderby' => $orderby,
+				'order'   => $order,
 			);
+			// Só adiciona meta_key quando necessário
+			if (!empty($meta_key)) {
+				$args['meta_key'] = $meta_key;
+			}
 			$query = new WP_Query( $args ); 
 			?>
 			<?php 

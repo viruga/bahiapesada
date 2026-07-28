@@ -94,6 +94,7 @@
         <option value="formation_year_desc" <?php selected( isset($_GET['ordenar']) && $_GET['ordenar'] == 'formation_year_desc' ); ?>>Ordenar por mais novas</option>
         <option value="formation_year_asc" <?php selected( isset($_GET['ordenar']) && $_GET['ordenar'] == 'formation_year_asc' ); ?>>Ordenar por clássicas</option>
         <option value="youtube_views" <?php selected( isset($_GET['ordenar']) && $_GET['ordenar'] == 'youtube_views' ); ?>>Por relevância</option>
+        <option value="title_asc" <?php selected( isset($_GET['ordenar']) && $_GET['ordenar'] == 'title_asc' ); ?>>Ordem alfabética</option>
     </select>
 
     <button type="submit" class="btn btn-primary btn-sm my-1">Filtrar</button>
